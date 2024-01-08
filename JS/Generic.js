@@ -41,7 +41,7 @@ function inputFile() {
 
             document.getElementById("treasureRng").value = dict.rng.treasure_regular;
             document.getElementById("tierRng").value = dict.rng.treasureTier_regular;
-            document.getElementById("cardRng").value = dict.rng.cardPack_taintedWorld;
+            document.getElementById("cardRng").value = dict.rng.cardPack_rookieOnTheBattlefield;
             let levels = dict.globalLevel;
             document.getElementById("GL").value = (levels.mining_0 +
                 (levels.hasOwnProperty("village_0") ? levels.village_0 : 0) +
