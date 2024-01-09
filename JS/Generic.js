@@ -67,6 +67,7 @@ function inputFile() {
         }
         document.getElementById("button:D").style.display = "inline";
         document.getElementById("myFile").disabled = true;
+        updateElement();
     }
 }
 
