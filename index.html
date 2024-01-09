@@ -26,23 +26,45 @@
         -moz-user-select: -moz-none;
         -khtml-user-select: none;
         -webkit-user-select: none;
-
-        /*
-            Introduced in IE 10.
-            See http://ie.microsoft.com/testdrive/HTML5/msUserSelect/
-        */
         -ms-user-select: none;
         user-select: none;
     }
 </style>
 
 <head>
-    <label for="predict">What to predict:</label>
-    <select name="predict" id="predict" onchange="updateElement()">
-        <option value="treasure">Treasures</option>
-        <option value="card">Cards</option>
-        <option value="bingo">Bingo</option>
-    </select>
+    <span>
+        <label for="predict">What to predict:</label>
+        <select name="predict" id="predict" onchange="updateElement()">
+            <option value="treasure">Treasures</option>
+            <option value="card">Cards</option>
+            <option value="bingo">Bingo</option>
+        </select>
+        <label for="packs" hidden="True" id="packLabel">What pack to predict:</label>
+        <select name="packs" id="selectedPack" onchange="updateElement()" hidden="True">
+            <!-- Mining -->
+            <option value="intoDarkness">Into Darkness</option>
+            <option value="drillsAndDepths">Drills and Depths</option>
+            <option value="hotStuff">Hot Stuff</option>
+            <option value="dangerZone">Danger Zone</option>
+            <!-- Village -->
+            <option value="meetingNewPeople">Meeting New People</option>
+            <option value="darkCult">Dark Cult</option>
+            <option value="technologicalAdvancement">Technological Advancement</option>
+            <!-- Horde -->
+            <option value="rookieOnTheBattlefield">Rookie on the Battlefield</option>
+            <option value="spiritualSuccess">Spiritual Success</option>
+            <option value="oldMemories">Old Memories</option>
+            <option value="taintedWorld">Tainted World</option>
+            <!-- Farm -->
+            <option value="bountifulHarvest">Bountiful Harvest</option>
+            <option value="juicyYields">Juicy Yields</option>
+            <option value="insectWorld">Insect World</option>
+            <option value="beesAndFlowers">Bees and Flowers</option>
+            <!-- Gallery -->
+            <option value="newArtist">New Artist</option>
+            <option value="inspiringCreations">Inspiring Creations</option>
+        </select>
+    </span>
     <br>
     <span>
         <input type="file" id="myFile" name="Save File"oninput="inputFile()"></input>
@@ -58,7 +80,7 @@
         <input type="number" id="cardRng" style="width: 70px; font-family: monospace;" oninput="startGame()"></input>
         <button onclick="startGame()">Predict</button>
     </span>
-    <div id="bingoPredictor">
+    <div id="bingoPredictor" hidden="True">
         <br><br>
         <div class="grid-container">
             <div id="grid1" class="grid-item" onclick="weightAdd(this.id)">1</div>
@@ -89,7 +111,7 @@
         </div>
     </div>
     <div id="div1"></div>
-    <div >
+    <div hidden="True">
         <p id="saveData"></p>
         <p id="bingoWeights"></p>
     </div>
