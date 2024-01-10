@@ -7,6 +7,7 @@ function predictCards() {
     let pack = cardStuff.packs[selectedPack]
     var prog = typeof parseInt(document.getElementById('cardRng').value) === "number" ? document.getElementById('cardRng').value : 0;
     for (let i = 0; i < 10; i++) {
+        outputText("------  " + (i + 1) + "  ------")
         let rngGen = new Math.seedrandom(document.getElementById('playerID').value + "cardPack_" + String(selectedPack) + "_" + (parseInt(prog) + i));
         let cacheWeight = [];
         let cacheContent = [];
@@ -14,6 +15,8 @@ function predictCards() {
             cacheWeight.push(elem);
             cacheContent.push(key);
         }
-        for (let j = 0, m = pack.amount; j < m; j++) { outputText(cardStuff.names[cacheContent[weightSelect(cacheWeight, rngGen())]]); }
+        for (let j = 0, m = pack.amount; j < m; j++) { 
+            outputText(cardStuff.names[cacheContent[weightSelect(cacheWeight, rngGen())]]);
+        }
     }
 }

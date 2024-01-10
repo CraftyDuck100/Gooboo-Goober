@@ -56,7 +56,7 @@ function startGame() {
         // Treasure Type + Output
         var treasureRng = typeof parseInt(document.getElementById('treasureRng').value) === "number" ? document.getElementById('treasureRng').value : 0;
         let rngGen = new Math.seedrandom(document.getElementById('playerID').value + "treasure_regular" + '_' + (parseInt(treasureRng) + i));
-        outputText(String(randomElem(effectList, rngGen()) + ", " + randomElem(iconList, rngGen())), tier);
+        outputText((i + 1) + ". " + String(randomElem(effectList, rngGen()) + ", " + randomElem(iconList, rngGen())), tier);
     }
 }
 function outputText(text, color = 0) {
@@ -67,6 +67,7 @@ function outputText(text, color = 0) {
     1px 0px 1px black, 0px 1px 1px black, -1px 0px 1px black, 0px -1px 1px black, \
     1px 0px 2px black, 0px 1px 2px black, -1px 0px 2px black, 0px -1px 2px black";
     para.style.fontSize = "19px";
+    para.style.fontFamily = "Araboto";
     const node = document.createTextNode(text);
     para.appendChild(node);
     const element = document.getElementById("div1");
