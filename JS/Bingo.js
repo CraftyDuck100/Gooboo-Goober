@@ -27,9 +27,8 @@ function predictBingo() {
         var baseBoosts = JSON.parse("[" + document.getElementById("bingoWeights").innerHTML + "]")
 
         baseBoosts.forEach(i => {
-            if (draws.includes(i)) {
-                boosts.push(0);
-            } else {
+            if (draws.includes(i)) { boosts.push(0) }
+            else {
                 boosts.push(i);
                 card.includes(i) ? document.getElementById("grid" + (card.indexOf(i) + 1)).style.background = ["#FFA07A", "#FF7F50", "#FF6347"][Math.floor(boostI)] : 0;
             }
@@ -57,9 +56,7 @@ function predictBingo() {
             draws.push(drawnNum + 1);
             predictedDraws.push(drawnNum + 1);
         }
-        predictedDraws.forEach(i => {
-            card.includes(i) ? document.getElementById("grid" + (card.indexOf(i) + 1)).style.background = "greenyellow" : 0;
-        });
+        predictedDraws.forEach(i => { card.includes(i) ? document.getElementById("grid" + (card.indexOf(i) + 1)).style.background = "greenyellow" : 0; });
     }
 }
 
@@ -76,6 +73,4 @@ function weightAdd(id) {
     document.getElementById("bingoWeights").innerHTML = array.join(", ")
     predictBingo();
 }
-function buildArray(length = 0) {
-    return Array(length).fill().map((x, i) => i);
-}
+function buildArray(length = 0) { return Array(length).fill().map((x, i) => i); }

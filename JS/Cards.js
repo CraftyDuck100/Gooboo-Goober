@@ -2,6 +2,7 @@ let cardStuff = getCardData();
 
 function predictCards() {
     const div = document.getElementById("div1");
+    var dict = JSON.parse(document.getElementById("saveData").innerHTML);
     while(div.firstChild) { div.removeChild(div.firstChild); }
     let selectedPack = document.getElementById("selectedPack").value;
     let pack = cardStuff.packs[selectedPack]
@@ -16,7 +17,8 @@ function predictCards() {
             cacheContent.push(key);
         }
         for (let j = 0, m = pack.amount; j < m; j++) { 
-            outputText(cardStuff.names[cacheContent[weightSelect(cacheWeight, rngGen())]]);
+            let card = cacheContent[weightSelect(cacheWeight, rngGen())];
+            outputText((dict.card.card.hasOwnProperty(String(card)) ? "" : "(New!) ") + cardStuff.names[card]);
         }
     }
 }
