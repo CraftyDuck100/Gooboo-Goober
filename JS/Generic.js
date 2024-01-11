@@ -58,7 +58,8 @@ function inputFile() {
                 (levels.hasOwnProperty("village_0") ? levels.village_0 : 0) +
                 (levels.hasOwnProperty("horde_0") ? levels.horde_0 : 0) +
                 (levels.hasOwnProperty("farm_0") ? levels.farm_0 : 0) +
-                (levels.hasOwnProperty("gallery_0") ? levels.gallery_0 : 0)
+                (levels.hasOwnProperty("gallery_0") ? levels.gallery_0 : 0) +
+                (levels.hasOwnProperty("mining_1") ? levels.mining_1 : 0)
             );
             document.getElementById("playerID").value = dict.playerId;
         }
