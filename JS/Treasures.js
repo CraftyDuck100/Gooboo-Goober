@@ -11,33 +11,32 @@ function startGame() {
     let effectList = [
         "miningDamage",
         "currencyMiningScrapGain",
-        "miningOreGain",
-        "miningSmelterySpeed",
-
-        "queueSpeedVillageBuilding",
-        "villageMaterialGain",
-        "currencyVillageCoinGain",
-        "villageMentalGain",
-
-        "hordeAttack",
-        "currencyHordeBoneGain",
-        "currencyHordeMonsterPartGain",
-        "hordeItemMasteryGain",
-
-        "currencyFarmVegetableGain",
-        "currencyFarmFruitGain",
-        "currencyFarmGrainGain",
-        "currencyFarmFlowerGain",
-
-        "currencyGalleryBeautyGain",
-        "currencyGalleryConverterGain",
-        "currencyGalleryPackageGain"
+        "miningOreGain"
     ]
 
     const div = document.getElementById("div1");
     while(div.firstChild){
         div.removeChild(div.firstChild);
     }
+
+    var save = JSON.parse(document.getElementById("saveData").innerHTML);
+    var unlocks = save.unlock;
+    "miningSmeltery" in unlocks ? effectList.push("miningSmelterySpeed") : null;
+    effectList.push("queueSpeedVillageBuilding");
+    effectList.push("villageMaterialGain");
+    effectList.push("currencyVillageCoinGain");
+    effectList.push("villageMentalGain");
+    "hordeFeature" in unlocks ? effectList.push("hordeAttack") : null;
+    "hordeFeature" in unlocks ? effectList.push("currencyHordeBoneGain") : null;
+    "hordeFeature" in unlocks ? effectList.push("currencyHordeMonsterPartGain") : null;
+    "hordeItemMastery" in unlocks ? effectList.push("hordeItemMasteryGain") : null;
+    effectList.push("currencyFarmVegetableGain");
+    effectList.push("currencyFarmFruitGain");
+    effectList.push("currencyFarmGrainGain");
+    effectList.push("currencyFarmFlowerGain");
+    "galleryFeature" in unlocks ? effectList.push("currencyGalleryBeautyGain") : null;
+    "galleryConversion" in unlocks ? effectList.push("currencyGalleryConverterGain") : null;
+    "galleryDrums" in unlocks ? effectList.push("currencyGalleryPackageGain") : null;
 
     for(let i = 0; i < 99; i++) {
         // Tier Rolling

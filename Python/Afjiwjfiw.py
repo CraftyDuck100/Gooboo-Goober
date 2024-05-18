@@ -1,12 +1,19 @@
 import pynput, time
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.options import Options as ChromeOptions
 from pynput.keyboard import Key, Controller
 from pynput import mouse, keyboard
 
 if ( __name__ == "__main__" ):
     keyboard2 = Controller()
-    driver = webdriver.Firefox() # You can replace this with other web drivers
+    options = ChromeOptions()
+    options.browser_version = "latest"
+    options.platform_name = "win10"
+    ff_options = {}
+    ff_options["timezone"] = "UTC-00:00"
+    options.set_capability("goog:chromeOptions", ff_options)
+    driver = webdriver.Chrome(options=options) # You can replace this with other web drivers
     driver.get("https://tendsty.github.io/gooboo/")
     global sugma
     sugma = True
