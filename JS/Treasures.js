@@ -22,6 +22,7 @@ function startGame() {
     var save = JSON.parse(document.getElementById("saveData").innerHTML);
     var unlocks = save.unlock;
     "miningSmeltery" in unlocks ? effectList.push("miningSmelterySpeed") : null;
+    "miningSmoke" in unlocks > effectList.push("currencyMiningSmokeGain") : null;
     effectList.push("queueSpeedVillageBuilding");
     effectList.push("villageMaterialGain");
     effectList.push("currencyVillageCoinGain");
